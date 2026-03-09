@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  tracking-api:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: ml-tracking-api
+    ports:
+      - "8000:8000"
+    environment:
+      MLTRACK_DB_PATH: /app/data/tracking.db
+      MLTRACK_ARTIFACT_ROOT: /app/artifacts
+    volumes:
+      - tracking-data:/app/data
+      - tracking-artifacts:/app/artifacts
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  tracking-data:
+    driver: local
+  tracking-artifacts:
+    driver: local

@@ -1,0 +1,35 @@
+# ML Experiment Tracking Platform — Configuration
+# ------------------------------------------------
+
+platform:
+  name: "ML Experiment Tracking Platform"
+  version: "1.0.0"
+  environment: "development"
+
+storage:
+  backend: "sqlite"
+  sqlite:
+    db_path: "./tracking.db"
+  artifact_store:
+    root_dir: "./artifacts"
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+  cors_origins:
+    - "*"
+  debug: false
+
+logging:
+  level: "INFO"
+  format: "text"      # "text" or "json"
+  file: null           # set path for file logging
+
+registry:
+  auto_promote: false
+  default_stage: "none"
+
+tracking:
+  autolog:
+    enabled: true
+    sklearn: true

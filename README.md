@@ -7,6 +7,7 @@
   </a>
   <img src="https://img.shields.io/badge/python-3.10%2B-blue.svg" alt="Python 3.10+">
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License: MIT">
+[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED.svg?logo=docker)](Dockerfile)
   <img src="https://img.shields.io/badge/fastapi-0.104%2B-009688.svg" alt="FastAPI">
   <img src="https://img.shields.io/badge/scikit--learn-1.3%2B-orange.svg" alt="scikit-learn">
 </p>
